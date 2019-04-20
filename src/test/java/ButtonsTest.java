@@ -20,7 +20,7 @@ class ButtonsTest {
         kprts.click(Buttons.APK);
         assertTrue(kprts.isOn(Buttons.APK));
         kprts.click(Buttons.APK);
-        assertFalse(kprts.isOff(Buttons.APK));
+        assertTrue(kprts.isOff(Buttons.APK));
     }
 
     @Test
@@ -28,7 +28,7 @@ class ButtonsTest {
         kprts.click(Buttons.APK);
         assertFalse(kprts.isOn(Buttons.APK));
         kprts.click(Buttons.APK);
-        assertFalse(kprts.isOff(Buttons.APK));
+        assertTrue(kprts.isOff(Buttons.APK));
     }
 
     @Test

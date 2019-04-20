@@ -22,7 +22,9 @@ public class KPRTS {
     }
 
     public void click(Buttons button) {
-        isOnButtons.put(button, !isOnButtons.get(button));
+        if (isOn) {
+            isOnButtons.put(button, !isOnButtons.get(button));
+        }
     }
 
     public boolean isOn(Buttons button) {
