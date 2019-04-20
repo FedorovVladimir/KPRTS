@@ -26,9 +26,9 @@ class ButtonsTest {
     @Test
     void clickApk_Off() {
         kprts.click(Buttons.APK);
-        assertTrue(kprts.isOn(Buttons.APK));
+        assertFalse(kprts.isOn(Buttons.APK));
         kprts.click(Buttons.APK);
-        assertTrue(kprts.isOff(Buttons.APK));
+        assertFalse(kprts.isOff(Buttons.APK));
     }
 
     @Test
