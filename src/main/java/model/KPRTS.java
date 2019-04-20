@@ -9,4 +9,16 @@ public class KPRTS {
     public boolean isTurn() {
         return true;
     }
+
+    public void clickApk() {
+
+    }
+
+    public boolean isApkOn() {
+        return false;
+    }
+
+    public boolean isApkOff() {
+        return false;
+    }
 }
