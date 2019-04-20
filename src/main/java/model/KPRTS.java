@@ -3,6 +3,7 @@ package model;
 public class KPRTS {
 
     private boolean isApkOn = false;
+    private boolean isVorOn = false;
 
     public void turnOn() {
 
@@ -22,5 +23,17 @@ public class KPRTS {
 
     public boolean isApkOff() {
         return !isApkOn;
+    }
+
+    public void clickVor() {
+        isVorOn = !isVorOn;
+    }
+
+    public boolean isVorOn() {
+        return isVorOn;
+    }
+
+    public boolean isVorOff() {
+        return !isVorOn;
     }
 }
