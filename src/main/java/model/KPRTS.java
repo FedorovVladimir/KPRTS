@@ -2,6 +2,8 @@ package model;
 
 public class KPRTS {
 
+    private boolean isApkOn = false;
+
     public void turnOn() {
 
     }
@@ -11,14 +13,14 @@ public class KPRTS {
     }
 
     public void clickApk() {
-
+        isApkOn = !isApkOn;
     }
 
     public boolean isApkOn() {
-        return false;
+        return isApkOn;
     }
 
     public boolean isApkOff() {
-        return false;
+        return !isApkOn;
     }
 }
