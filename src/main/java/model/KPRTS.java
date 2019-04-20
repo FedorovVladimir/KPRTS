@@ -1,39 +1,35 @@
 package model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class KPRTS {
 
-    private boolean isApkOn = false;
-    private boolean isVorOn = false;
+    private boolean isOn = false;
+
+    private Map<Buttons, Boolean> isOnButtons = new HashMap<Buttons, Boolean>(){{
+        for (Buttons button : Buttons.values()) {
+            put(button, false);
+        }
+    }};
 
     public void turnOn() {
-
+        isOn = true;
     }
 
     public boolean isTurn() {
-        return true;
+        return isOn;
     }
 
-    public void clickApk() {
-        isApkOn = !isApkOn;
+    public void click(Buttons button) {
+        isOnButtons.put(button, !isOnButtons.get(button));
     }
 
-    public boolean isApkOn() {
-        return isApkOn;
+    public boolean isOn(Buttons button) {
+        return isOnButtons.get(button);
     }
 
-    public boolean isApkOff() {
-        return !isApkOn;
-    }
-
-    public void clickVor() {
-        isVorOn = !isVorOn;
-    }
-
-    public boolean isVorOn() {
-        return isVorOn;
-    }
-
-    public boolean isVorOff() {
-        return !isVorOn;
+    public boolean isOff(Buttons button) {
+        return !isOnButtons.get(button);
     }
 }

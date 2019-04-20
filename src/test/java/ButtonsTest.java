@@ -1,33 +1,36 @@
+import model.Buttons;
 import model.KPRTS;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ButtonsTest {
+class ButtonsTest {
 
     private KPRTS kprts = new KPRTS();
 
     @Test
-    public void turnOn() {
+    void turnOn() {
         kprts.turnOn();
         assertTrue(kprts.isTurn());
     }
 
     @Test
-    public void clickApk() {
+    void clickApk() {
         kprts.turnOn();
-        kprts.clickApk();
-        assertTrue(kprts.isApkOn());
-        kprts.clickApk();
-        assertTrue(kprts.isApkOff());
+        kprts.click(Buttons.APK);
+        assertTrue(kprts.isOn(Buttons.APK));
+        kprts.click(Buttons.APK);
+        assertTrue(kprts.isOff(Buttons.APK));
     }
 
     @Test
-    public void clickVor() {
+    void clickAllButton() {
         kprts.turnOn();
-        kprts.clickVor();
-        assertTrue(kprts.isVorOn());
-        kprts.clickVor();
-        assertTrue(kprts.isVorOff());
+        for (Buttons button: Buttons.values()) {
+            kprts.click(button);
+            assertTrue(kprts.isOn(button));
+            kprts.click(button);
+            assertTrue(kprts.isOff(button));
+        }
     }
 }
