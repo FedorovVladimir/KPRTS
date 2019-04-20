@@ -21,4 +21,13 @@ public class ButtonsTest {
         kprts.clickApk();
         assertTrue(kprts.isApkOff());
     }
+
+    @Test
+    public void clickVor() {
+        kprts.turnOn();
+        kprts.clickVor();
+        assertTrue(kprts.isVorOn());
+        kprts.clickVor();
+        assertTrue(kprts.isVorOff());
+    }
 }
