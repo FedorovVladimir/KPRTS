@@ -60,5 +60,9 @@ class KPRTSTest {
         assertFalse(kprts.isOn(Light.APK));
         assertTrue(kprts.isOn(Light.VOR));
         assertTrue(kprts.isOn(Light.DME));
+        kprts.click(Buttons.APK);
+        assertTrue(kprts.isOn(Light.APK));
+        assertFalse(kprts.isOn(Light.VOR));
+        assertFalse(kprts.isOn(Light.DME));
     }
 }
