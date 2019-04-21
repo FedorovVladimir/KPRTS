@@ -18,7 +18,7 @@ public class KPRTS {
         }
     }};
 
-    public void turnOn() {
+    public void turnOn(int state) {
         isOn = true;
     }
 
