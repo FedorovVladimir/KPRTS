@@ -20,10 +20,14 @@ public class KPRTS {
     }
 
     public String getTextFromPanel(int i) {
-        if (on && i > 0 && i < 4) {
-            return path1.getPanel(i);
+        if (on) {
+            if (i > 0 && i < 4) {
+                return path1.getPanel(i);
+            } else {
+                return path2.getPanel(i);
+            }
         } else {
-            return path2.getPanel(i);
+            return "        ";
         }
     }
 

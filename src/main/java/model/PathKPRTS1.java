@@ -1,42 +1,26 @@
 package model;
 
-import java.util.HashMap;
-import java.util.Map;
+public class PathKPRTS1 extends PathKPRTS {
 
-public class PathKPRTS1 implements PathKPRTS {
+    private Buttons3 first = new Buttons3();
+    private RoundButton1 roundButton = new RoundButton1();
 
-    Buttons3 first = new Buttons3();
-    RoundButton1 roundButton1 = new RoundButton1();
+    PathKPRTS1() {
+        lights.put("APK", true);
+        lights.put("VOR", false);
+        lights.put("DME", false);
+        lights.put("ILS", false);
+        lights.put("MLS", false);
+        lights.put("RSBN", false);
+        lights.put("MRP", false);
 
-    // лампочки
-    Map<String, Boolean> lights = new HashMap<String, Boolean>(){{
-        put("APK", true);
-        put("VOR", false);
-        put("DME", false);
-        put("ILS", false);
-        put("MLS", false);
-        put("RSBN", false);
-        put("MRP", false);
-    }};
-
-    // текстовые панели
-    Map<Integer, String> panels = new HashMap<Integer, String>(){{
-        put(0, "        ");
-        put(1, "   150,0");
-        put(2, "   150,0");
-        put(3, "КОМП ТЛФ");
-    }};
+        panels.put(0, "        ");
+        panels.put(1, "   150,0");
+        panels.put(2, "   150,0");
+        panels.put(3, "КОМП ТЛФ");
+    }
 
     private boolean az = false;
-
-    @Override
-    public boolean isOnLight(String lightName) {
-        if (lights.get(lightName) != null) {
-            return lights.get(lightName);
-        } else {
-            return false;
-        }
-    }
 
     @Override
     public void click(String button) {
@@ -65,13 +49,8 @@ public class PathKPRTS1 implements PathKPRTS {
     }
 
     @Override
-    public String getPanel(int i) {
-        return panels.get(i);
-    }
-
-    @Override
     public void clickRight(int size) {
-        roundButton1.clickRight(panels, size, getAz());
+        roundButton.clickRight(panels, size, getAz());
     }
 
     void setAz(boolean az) {
