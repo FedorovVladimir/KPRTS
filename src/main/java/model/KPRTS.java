@@ -50,4 +50,8 @@ public class KPRTS {
         isOnLight.put(Light.APK, false);
         isOnLight.put(Light.MB1, false);
     }
+
+    public Panel getPanel(int i) {
+        return new Panel();
+    }
 }

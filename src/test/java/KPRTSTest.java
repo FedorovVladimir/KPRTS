@@ -15,6 +15,7 @@ class KPRTSTest {
         assertTrue(kprts.isTurn());
         assertTrue(kprts.isOn(Light.APK));
         assertTrue(kprts.isOn(Light.MB1));
+        assertEquals("150,0", kprts.getPanel(1).getText());
         kprts.turnOff();
         assertFalse(kprts.isOn(Light.APK));
         assertFalse(kprts.isOn(Light.MB1));
