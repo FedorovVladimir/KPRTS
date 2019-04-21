@@ -27,19 +27,25 @@ public class KPRTS {
     }
 
     boolean sparen = true;
+    boolean vor = false;
     public boolean click(Buttons button) {
         if (isOn) {
             if (button == Buttons.VOR) {
+                if (vor) {
+                    sparen = false;
+                }
                 if (sparen) {
                     isOnLight.put(Light.APK, false);
                     isOnLight.put(Light.VOR, true);
                     isOnLight.put(Light.DME, true);
-                    sparen = false;
                 } else {
                     isOnLight.put(Light.APK, false);
                     isOnLight.put(Light.VOR, true);
                     isOnLight.put(Light.DME, false);
                 }
+                vor = true;
+            } else {
+                vor = false;
             }
             if (button == Buttons.APK) {
                 isOnLight.put(Light.APK, true);
