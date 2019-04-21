@@ -1,10 +1,11 @@
 import model.Buttons;
 import model.KPRTS;
+import model.Light;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ButtonsTest {
+class KPRTSTest {
 
     private KPRTS kprts = new KPRTS();
 
@@ -12,6 +13,7 @@ class ButtonsTest {
     void turnOn() {
         kprts.turnOn();
         assertTrue(kprts.isTurn());
+        assertTrue(kprts.isOn(Light.APK));
     }
 
     @Test
