@@ -38,6 +38,11 @@ public class KPRTS {
                 isOnLight.put(Light.VOR, false);
                 isOnLight.put(Light.DME, false);
             }
+            if (button == Buttons.DME) {
+                isOnLight.put(Light.APK, false);
+                isOnLight.put(Light.VOR, false);
+                isOnLight.put(Light.DME, true);
+            }
             return true;
         }
         return false;
