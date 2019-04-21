@@ -26,7 +26,7 @@ class KPRTSTest {
         kprts.click(Buttons.APK);
         assertTrue(kprts.isOn(Buttons.APK));
         kprts.click(Buttons.APK);
-        assertTrue(kprts.isOff(Buttons.APK));
+        assertFalse(kprts.isOn(Buttons.APK));
     }
 
     @Test
@@ -34,7 +34,7 @@ class KPRTSTest {
         kprts.click(Buttons.APK);
         assertFalse(kprts.isOn(Buttons.APK));
         kprts.click(Buttons.APK);
-        assertTrue(kprts.isOff(Buttons.APK));
+        assertFalse(kprts.isOn(Buttons.APK));
     }
 
     @Test
@@ -44,7 +44,7 @@ class KPRTSTest {
             kprts.click(button);
             assertTrue(kprts.isOn(button));
             kprts.click(button);
-            assertTrue(kprts.isOff(button));
+            assertFalse(kprts.isOn(button));
         }
     }
 }

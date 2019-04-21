@@ -42,10 +42,6 @@ public class KPRTS {
         return isOnButtons.get(button);
     }
 
-    public boolean isOff(Buttons button) {
-        return !isOnButtons.get(button);
-    }
-
     public boolean isOn(Light light) {
         return isOnLight.get(light);
     }
