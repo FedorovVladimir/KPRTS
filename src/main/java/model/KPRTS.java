@@ -28,7 +28,7 @@ public class KPRTS {
 
     public boolean click(Buttons button) {
         if (isOn) {
-
+            return true;
         }
         return false;
     }
