@@ -1,3 +1,4 @@
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import model.KPRTS;
@@ -31,5 +32,14 @@ public class KPRTS_BDD {
     @When("^Я нажал кнопку \"([^\"]*)\"$")
     public void яНажалКнопку(String buttonName) {
         kprts.click(buttonName);
+    }
+
+    @When("^Я повернул крутилку \"([^\"]*)\" на \"([^\"]*)\"$")
+    public void яПовернулКрутилкуНа(String name, String size) {
+        if (name.equals("right")) {
+            kprts.clickRight(1, Integer.parseInt(size));
+        } else {
+            kprts.clickRight(2, Integer.parseInt(size));
+        }
     }
 }

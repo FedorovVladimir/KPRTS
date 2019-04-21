@@ -8,7 +8,7 @@ public class Buttons3 {
     private boolean vor = false;
     private boolean rassparen = false;
 
-    public void click(Buttons button, Map<Light, Boolean> isOnLight, Map<Integer, String> panels) {
+    public void click(Buttons button, Map<Light, Boolean> isOnLight, Map<Integer, String> panels, KPRTS kprts) {
         if (button == Buttons.DME) {
             if (!sparen && vor && !rassparen) {
                 sparen = true;
@@ -28,6 +28,7 @@ public class Buttons3 {
             }
         }
         if (button == Buttons.VOR) {
+            kprts.setAz(true);
             if (vor) {
                 sparen = false;
                 rassparen = true;
