@@ -28,6 +28,7 @@ public class KPRTS {
 
     public boolean click(Buttons button) {
         if (isOn) {
+            isOnLight.put(Light.APK, false);
             return true;
         }
         return false;
