@@ -12,6 +12,8 @@ public class KPRTS {
         isOnLight.put(Light.MB1, true);
     }
 
+    private Buttons3 first3 = new Buttons3();
+
     private Map<Light, Boolean> isOnLight = new HashMap<Light, Boolean>(){{
         for (Light light : Light.values()) {
             put(light, false);
@@ -19,73 +21,21 @@ public class KPRTS {
     }};
 
     public void turnOn(int state) {
-        if (state == 0) {
-            isOn = false;
-        } else {
-            isOn = true;
-        }
+        isOn = state == 1 || state == 2;
     }
 
-    public boolean isTurn() {
-        return isOn;
-    }
-
-    boolean sparen = true;
-    boolean vor = false;
-    boolean rassparen = false;
-    public boolean click(String button) {
+    public void click(String button) {
         if (isOn) {
-            if (button.equals(Buttons.DME.toString())) {
-                if (!sparen && vor && !rassparen) {
-                    sparen = true;
-                    isOnLight.put(Light.APK, false);
-                    isOnLight.put(Light.VOR, true);
-                    isOnLight.put(Light.DME, true);
-                } else {
-                    isOnLight.put(Light.APK, false);
-                    isOnLight.put(Light.VOR, false);
-                    isOnLight.put(Light.DME, true);
-                }
+            if (button.equals(Buttons.APK.toString())) {
+                first3.click(Buttons.APK, isOnLight);
             }
             if (button.equals(Buttons.VOR.toString())) {
-                if (vor) {
-                    sparen = false;
-                    rassparen = true;
-                }
-                if (sparen) {
-                    isOnLight.put(Light.APK, false);
-                    isOnLight.put(Light.VOR, true);
-                    isOnLight.put(Light.DME, true);
-                } else {
-                    isOnLight.put(Light.APK, false);
-                    isOnLight.put(Light.VOR, true);
-                    isOnLight.put(Light.DME, false);
-                }
-                vor = true;
-            } else {
-                vor = false;
-                rassparen = false;
+                first3.click(Buttons.VOR, isOnLight);
             }
-            if (button.equals(Buttons.APK.toString())) {
-                isOnLight.put(Light.APK, true);
-                isOnLight.put(Light.VOR, false);
-                isOnLight.put(Light.DME, false);
+            if (button.equals(Buttons.DME.toString())) {
+                first3.click(Buttons.DME, isOnLight);
             }
-            return true;
         }
-        return false;
-    }
-
-    public boolean isOn(Light light) {
-        if (isOn) {
-            return isOnLight.get(light);
-        } else {
-            return false;
-        }
-    }
-
-    public void turnOff() {
-        isOn = false;
     }
 
     public Panel getPanel(int i) {
