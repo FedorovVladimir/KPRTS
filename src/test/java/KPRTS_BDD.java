@@ -36,7 +36,7 @@ public class KPRTS_BDD {
 
     @When("^Я повернул крутилку \"([^\"]*)\" на \"([^\"]*)\"$")
     public void яПовернулКрутилкуНа(String name, String size) {
-        if (name.equals("right")) {
+        if (name.equals("1")) {
             kprts.clickRight(1, Integer.parseInt(size));
         } else {
             kprts.clickRight(2, Integer.parseInt(size));

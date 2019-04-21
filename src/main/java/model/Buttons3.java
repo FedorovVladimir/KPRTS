@@ -1,65 +1,63 @@
 package model;
 
-import java.util.Map;
-
-public class Buttons3 {
+class Buttons3 {
 
     private boolean sparen = true;
     private boolean vor = false;
     private boolean rassparen = false;
 
-    public void click(Buttons button, Map<Light, Boolean> isOnLight, Map<Integer, String> panels, KPRTS kprts) {
-        if (button == Buttons.DME) {
+    void click(String button, PathKPRTS1 path) {
+        if (button.equals("DME")) {
             if (!sparen && vor && !rassparen) {
                 sparen = true;
-                isOnLight.put(Light.APK, false);
-                isOnLight.put(Light.VOR, true);
-                isOnLight.put(Light.DME, true);
-                panels.put(1, "  108,00");
-                panels.put(2, "  Аз   0");
-                panels.put(3, "СПАРЕН П");
+                path.lights.put("APK", false);
+                path.lights.put("VOR", true);
+                path.lights.put("DME", true);
+                path.panels.put(1, "  108,00");
+                path.panels.put(2, "  Аз   0");
+                path.panels.put(3, "СПАРЕН П");
             } else {
-                isOnLight.put(Light.APK, false);
-                isOnLight.put(Light.VOR, false);
-                isOnLight.put(Light.DME, true);
-                panels.put(1, "  108,00");
-                panels.put(2, "  108,00");
-                panels.put(3, "        ");
+                path.lights.put("APK", false);
+                path.lights.put("VOR", false);
+                path.lights.put("DME", true);
+                path.panels.put(1, "  108,00");
+                path.panels.put(2, "  108,00");
+                path.panels.put(3, "        ");
             }
         }
-        if (button == Buttons.VOR) {
-            kprts.setAz(true);
+        if (button.equals("VOR")) {
+            path.setAz(true);
             if (vor) {
                 sparen = false;
                 rassparen = true;
             }
             if (sparen) {
-                isOnLight.put(Light.APK, false);
-                isOnLight.put(Light.VOR, true);
-                isOnLight.put(Light.DME, true);
-                panels.put(1, "  108,00");
-                panels.put(2, "  Аз   0");
-                panels.put(3, "СПАРЕН П");
+                path.lights.put("APK", false);
+                path.lights.put("VOR", true);
+                path.lights.put("DME", true);
+                path.panels.put(1, "  108,00");
+                path.panels.put(2, "  Аз   0");
+                path.panels.put(3, "СПАРЕН П");
             } else {
-                isOnLight.put(Light.APK, false);
-                isOnLight.put(Light.VOR, true);
-                isOnLight.put(Light.DME, false);
-                panels.put(1, "  108,00");
-                panels.put(2, "  Аз   0");
-                panels.put(3, "       П");
+                path.lights.put("APK", false);
+                path.lights.put("VOR", true);
+                path.lights.put("DME", false);
+                path.panels.put(1, "  108,00");
+                path.panels.put(2, "  Аз   0");
+                path.panels.put(3, "       П");
             }
             vor = true;
         } else {
             vor = false;
             rassparen = false;
         }
-        if (button == Buttons.APK) {
-            isOnLight.put(Light.APK, true);
-            isOnLight.put(Light.VOR, false);
-            isOnLight.put(Light.DME, false);
-            panels.put(1, "   150,0");
-            panels.put(2, "   150,0");
-            panels.put(3, "КОМП ТЛФ");
+        if (button.equals("APK")) {
+            path.lights.put("APK", true);
+            path.lights.put("VOR", false);
+            path.lights.put("DME", false);
+            path.panels.put(1, "   150,0");
+            path.panels.put(2, "   150,0");
+            path.panels.put(3, "КОМП ТЛФ");
         }
     }
 }
