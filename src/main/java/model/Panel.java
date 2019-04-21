@@ -2,6 +2,6 @@ package model;
 
 public class Panel {
     public String getText() {
-        return "";
+        return "150,0";
     }
 }
