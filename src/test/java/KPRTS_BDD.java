@@ -1,4 +1,3 @@
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import model.KPRTS;
@@ -16,17 +15,17 @@ public class KPRTS_BDD {
 
     @Then("^Горит \"([^\"]*)\"$")
     public void горит(String lightName) {
-        assertTrue(kprts.isOnLight(lightName));
+        assertTrue(kprts.isLight(lightName));
     }
 
     @Then("^На панели \"([^\"]*)\" текст \"([^\"]*)\"$")
     public void наПанелиТекст(String numberPanel, String text) {
-        assertEquals(text, kprts.getPanel(Integer.parseInt(numberPanel)));
+        assertEquals(text, kprts.getTextFromPanel(Integer.parseInt(numberPanel)));
     }
 
     @Then("^Не горит \"([^\"]*)\"$")
     public void неГорит(String lightName) {
-        assertFalse(kprts.isOnLight(lightName));
+        assertFalse(kprts.isLight(lightName));
     }
 
     @When("^Я нажал кнопку \"([^\"]*)\"$")

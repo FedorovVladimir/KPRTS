@@ -1,11 +1,11 @@
 package model;
 
-interface PathKPRTS {
-    boolean isOnLight(String lightName);
+abstract class PathKPRTS {
+    abstract boolean isOnLight(String lightName);
 
-    void click(String button);
+    abstract void click(String button);
 
-    String getPanel(int i);
+    abstract String getPanel(int i);
 
-    void clickRight(int size);
+    abstract void clickRight(int size);
 }
