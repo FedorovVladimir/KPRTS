@@ -3,6 +3,7 @@ package model;
 public class KPRTS {
 
     private PathKPRTS path1 = new PathKPRTS1();
+
     private PathKPRTS path2 = new PathKPRTS2();
 
     private boolean on = false;

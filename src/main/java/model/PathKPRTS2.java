@@ -2,7 +2,7 @@ package model;
 
 public class PathKPRTS2 extends PathKPRTS {
 
-    public PathKPRTS2() {
+    PathKPRTS2() {
         lights.put("MB1", true);
         lights.put("MB2", false);
         lights.put("MB3", false);

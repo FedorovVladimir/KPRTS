@@ -1,5 +1,7 @@
 package model;
 
+import javax.inject.Named;
+
 public class PathKPRTS1 extends PathKPRTS {
 
     private Buttons3 first = new Buttons3();
@@ -57,7 +59,7 @@ public class PathKPRTS1 extends PathKPRTS {
         this.az = az;
     }
 
-    public boolean getAz() {
+    private boolean getAz() {
         return az;
     }
 }
