@@ -11,6 +11,12 @@ public class Panel {
         if (i == 3) {
             str = "комп тлф";
         }
+        if (i == 4 || i == 5) {
+            str = "   118,0";
+        }
+        if (i == 6) {
+            str = "пш      ";
+        }
     }
 
     public String getText() {
