@@ -12,7 +12,7 @@ public class Panel {
             str = "комп тлф";
         }
         if (i == 4 || i == 5) {
-            str = "   118,0";
+            str = " 118,000";
         }
         if (i == 6) {
             str = "пш      ";

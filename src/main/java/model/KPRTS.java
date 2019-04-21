@@ -19,7 +19,11 @@ public class KPRTS {
     }};
 
     public void turnOn(int state) {
-        isOn = true;
+        if (state == 0) {
+            isOn = false;
+        } else {
+            isOn = true;
+        }
     }
 
     public boolean isTurn() {
@@ -28,10 +32,10 @@ public class KPRTS {
 
     boolean sparen = true;
     boolean vor = false;
-    public boolean click(Buttons button) {
+    public boolean click(String button) {
         if (isOn) {
-            if (button == Buttons.DME) {
-                if (vor) {
+            if (button.equals(Buttons.DME.toString())) {
+                if (!sparen && vor) {
                     sparen = true;
                     isOnLight.put(Light.APK, false);
                     isOnLight.put(Light.VOR, true);
@@ -42,7 +46,7 @@ public class KPRTS {
                     isOnLight.put(Light.DME, true);
                 }
             }
-            if (button == Buttons.VOR) {
+            if (button.equals(Buttons.VOR.toString())) {
                 if (vor) {
                     sparen = false;
                 }
@@ -59,7 +63,7 @@ public class KPRTS {
             } else {
                 vor = false;
             }
-            if (button == Buttons.APK) {
+            if (button.equals(Buttons.APK.toString())) {
                 isOnLight.put(Light.APK, true);
                 isOnLight.put(Light.VOR, false);
                 isOnLight.put(Light.DME, false);
@@ -87,5 +91,15 @@ public class KPRTS {
         } else {
             return new Panel(0);
         }
+    }
+
+    public boolean isOnLight(String lightName) {
+        if (isOn) {
+            for (Light light : isOnLight.keySet()) {
+                if (light.toString().equals(lightName) && isOnLight.get(light))
+                    return true;
+            }
+        }
+        return false;
     }
 }
