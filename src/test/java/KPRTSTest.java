@@ -14,6 +14,10 @@ class KPRTSTest {
         kprts.turnOn();
         assertTrue(kprts.isTurn());
         assertTrue(kprts.isOn(Light.APK));
+        assertTrue(kprts.isOn(Light.MB1));
+        kprts.turnOff();
+        assertFalse(kprts.isOn(Light.APK));
+        assertFalse(kprts.isOn(Light.MB1));
     }
 
     @Test

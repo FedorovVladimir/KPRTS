@@ -38,4 +38,8 @@ public class KPRTS {
     public boolean isOn(Light light) {
         return true;
     }
+
+    public void turnOff() {
+
+    }
 }
