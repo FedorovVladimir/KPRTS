@@ -8,7 +8,7 @@ public class Buttons3 {
     private boolean vor = false;
     private boolean rassparen = false;
 
-    public void click(Buttons button, Map<Light, Boolean> isOnLight) {
+    public void click(Buttons button, Map<Light, Boolean> isOnLight, Map<Integer, String> panels) {
         if (button == Buttons.DME) {
             if (!sparen && vor && !rassparen) {
                 sparen = true;
@@ -30,6 +30,9 @@ public class Buttons3 {
                 isOnLight.put(Light.APK, false);
                 isOnLight.put(Light.VOR, true);
                 isOnLight.put(Light.DME, true);
+                panels.put(1, "  108,00");
+                panels.put(2, "  Аз   0");
+                panels.put(3, "СПАРЕН П");
             } else {
                 isOnLight.put(Light.APK, false);
                 isOnLight.put(Light.VOR, true);
@@ -44,6 +47,9 @@ public class Buttons3 {
             isOnLight.put(Light.APK, true);
             isOnLight.put(Light.VOR, false);
             isOnLight.put(Light.DME, false);
+            panels.put(1, "   150,0");
+            panels.put(2, "   150,0");
+            panels.put(3, "КОМП ТЛФ");
         }
     }
 }

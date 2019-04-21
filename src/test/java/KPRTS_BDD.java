@@ -20,7 +20,7 @@ public class KPRTS_BDD {
 
     @Then("^На панели \"([^\"]*)\" текст \"([^\"]*)\"$")
     public void наПанелиТекст(String numberPanel, String text) {
-        assertEquals(text, kprts.getPanel(Integer.parseInt(numberPanel)).getText());
+        assertEquals(text, kprts.getPanel(Integer.parseInt(numberPanel)));
     }
 
     @Then("^Не горит \"([^\"]*)\"$")
