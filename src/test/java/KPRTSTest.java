@@ -10,6 +10,25 @@ class KPRTSTest {
     private KPRTS kprts = new KPRTS();
 
     @Test
+    void clickApk_On() {
+        kprts.turnOn();
+        assertTrue(kprts.click(Buttons.APK));
+    }
+
+    @Test
+    void clickApk_Off() {
+        assertFalse(kprts.click(Buttons.APK));
+    }
+
+    @Test
+    void clickAllButton() {
+        kprts.turnOn();
+        for (Buttons button: Buttons.values()) {
+            assertTrue(kprts.click(button));
+        }
+    }
+
+    @Test
     void turnOn() {
         kprts.turnOn();
         assertTrue(kprts.isTurn());
@@ -35,21 +54,9 @@ class KPRTSTest {
     }
 
     @Test
-    void clickApk_On() {
+    void clickVor_Off() {
         kprts.turnOn();
-        assertTrue(kprts.click(Buttons.APK));
-    }
-
-    @Test
-    void clickApk_Off() {
-        assertFalse(kprts.click(Buttons.APK));
-    }
-
-    @Test
-    void clickAllButton() {
-        kprts.turnOn();
-        for (Buttons button: Buttons.values()) {
-            assertTrue(kprts.click(button));
-        }
+        kprts.click(Buttons.VOR);
+        assertFalse(kprts.isOn(Light.APK));
     }
 }
