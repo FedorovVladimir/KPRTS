@@ -52,6 +52,6 @@ public class KPRTS {
     }
 
     public Panel getPanel(int i) {
-        return new Panel();
+        return new Panel(i);
     }
 }
