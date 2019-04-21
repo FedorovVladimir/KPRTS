@@ -26,12 +26,20 @@ public class KPRTS {
         return isOn;
     }
 
+    boolean sparen = true;
     public boolean click(Buttons button) {
         if (isOn) {
             if (button == Buttons.VOR) {
-                isOnLight.put(Light.APK, false);
-                isOnLight.put(Light.VOR, true);
-                isOnLight.put(Light.DME, true);
+                if (sparen) {
+                    isOnLight.put(Light.APK, false);
+                    isOnLight.put(Light.VOR, true);
+                    isOnLight.put(Light.DME, true);
+                    sparen = false;
+                } else {
+                    isOnLight.put(Light.APK, false);
+                    isOnLight.put(Light.VOR, true);
+                    isOnLight.put(Light.DME, false);
+                }
             }
             if (button == Buttons.APK) {
                 isOnLight.put(Light.APK, true);
