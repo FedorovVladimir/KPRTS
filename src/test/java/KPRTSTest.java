@@ -24,6 +24,12 @@ class KPRTSTest {
         kprts.turnOff();
         assertFalse(kprts.isOn(Light.APK));
         assertFalse(kprts.isOn(Light.MB1));
+        assertEquals("        ", kprts.getPanel(1).getText());
+        assertEquals("        ", kprts.getPanel(2).getText());
+        assertEquals("        ", kprts.getPanel(3).getText());
+        assertEquals("        ", kprts.getPanel(4).getText());
+        assertEquals("        ", kprts.getPanel(5).getText());
+        assertEquals("        ", kprts.getPanel(6).getText());
     }
 
     @Test
