@@ -15,10 +15,16 @@ public class Buttons3 {
                 isOnLight.put(Light.APK, false);
                 isOnLight.put(Light.VOR, true);
                 isOnLight.put(Light.DME, true);
+                panels.put(1, "  108,00");
+                panels.put(2, "  Аз   0");
+                panels.put(3, "СПАРЕН П");
             } else {
                 isOnLight.put(Light.APK, false);
                 isOnLight.put(Light.VOR, false);
                 isOnLight.put(Light.DME, true);
+                panels.put(1, "  108,00");
+                panels.put(2, "  108,00");
+                panels.put(3, "        ");
             }
         }
         if (button == Buttons.VOR) {
@@ -37,6 +43,9 @@ public class Buttons3 {
                 isOnLight.put(Light.APK, false);
                 isOnLight.put(Light.VOR, true);
                 isOnLight.put(Light.DME, false);
+                panels.put(1, "  108,00");
+                panels.put(2, "  Аз   0");
+                panels.put(3, "       П");
             }
             vor = true;
         } else {
