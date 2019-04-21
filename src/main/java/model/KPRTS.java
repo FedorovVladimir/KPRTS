@@ -36,6 +36,6 @@ public class KPRTS {
     }
 
     public boolean isOn(Light light) {
-        return false;
+        return true;
     }
 }
