@@ -32,10 +32,11 @@ public class KPRTS {
 
     boolean sparen = true;
     boolean vor = false;
+    boolean rassparen = false;
     public boolean click(String button) {
         if (isOn) {
             if (button.equals(Buttons.DME.toString())) {
-                if (!sparen && vor) {
+                if (!sparen && vor && !rassparen) {
                     sparen = true;
                     isOnLight.put(Light.APK, false);
                     isOnLight.put(Light.VOR, true);
@@ -49,6 +50,7 @@ public class KPRTS {
             if (button.equals(Buttons.VOR.toString())) {
                 if (vor) {
                     sparen = false;
+                    rassparen = true;
                 }
                 if (sparen) {
                     isOnLight.put(Light.APK, false);
@@ -62,6 +64,7 @@ public class KPRTS {
                 vor = true;
             } else {
                 vor = false;
+                rassparen = false;
             }
             if (button.equals(Buttons.APK.toString())) {
                 isOnLight.put(Light.APK, true);
