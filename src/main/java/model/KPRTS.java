@@ -47,11 +47,16 @@ public class KPRTS {
     }
 
     public void turnOff() {
+        isOn = false;
         isOnLight.put(Light.APK, false);
         isOnLight.put(Light.MB1, false);
     }
 
     public Panel getPanel(int i) {
-        return new Panel(i);
+        if (isOn) {
+            return new Panel(i);
+        } else {
+            return new Panel(0);
+        }
     }
 }

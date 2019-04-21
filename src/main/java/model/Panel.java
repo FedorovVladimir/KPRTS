@@ -2,7 +2,7 @@ package model;
 
 public class Panel {
 
-    private String str = "";
+    private String str = "        ";
 
     public Panel(int i) {
         if (i == 1 || i == 2) {
