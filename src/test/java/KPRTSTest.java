@@ -54,7 +54,7 @@ class KPRTSTest {
     }
 
     @Test
-    void clickVor_Off() {
+    void clickVor() {
         kprts.turnOn();
         kprts.click(Buttons.VOR);
         assertFalse(kprts.isOn(Light.APK));
