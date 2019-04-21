@@ -18,6 +18,9 @@ class KPRTSTest {
         assertEquals("   150,0", kprts.getPanel(1).getText());
         assertEquals("   150,0", kprts.getPanel(2).getText());
         assertEquals("комп тлф", kprts.getPanel(3).getText());
+        assertEquals("   118,0", kprts.getPanel(4).getText());
+        assertEquals("   118,0", kprts.getPanel(5).getText());
+        assertEquals("пш      ", kprts.getPanel(6).getText());
         kprts.turnOff();
         assertFalse(kprts.isOn(Light.APK));
         assertFalse(kprts.isOn(Light.MB1));
