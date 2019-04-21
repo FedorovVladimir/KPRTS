@@ -54,20 +54,41 @@ class KPRTSTest {
     }
 
     @Test
-    void clickVor() {
+    void click_Vor() {
         kprts.turnOn();
         kprts.click(Buttons.VOR);
         assertFalse(kprts.isOn(Light.APK));
         assertTrue(kprts.isOn(Light.VOR));
         assertTrue(kprts.isOn(Light.DME));
+    }
+
+    @Test
+    void click_Vor_Apk() {
+        kprts.turnOn();
+        kprts.click(Buttons.VOR);
         kprts.click(Buttons.APK);
         assertTrue(kprts.isOn(Light.APK));
         assertFalse(kprts.isOn(Light.VOR));
         assertFalse(kprts.isOn(Light.DME));
+    }
+
+    @Test
+    void click_Vor_Apk_DME() {
+        kprts.turnOn();
+        kprts.click(Buttons.VOR);
+        kprts.click(Buttons.APK);
         kprts.click(Buttons.DME);
         assertFalse(kprts.isOn(Light.APK));
         assertFalse(kprts.isOn(Light.VOR));
         assertTrue(kprts.isOn(Light.DME));
+    }
+
+    @Test
+    void click_Vor_Apk_DME_VOR() {
+        kprts.turnOn();
+        kprts.click(Buttons.VOR);
+        kprts.click(Buttons.APK);
+        kprts.click(Buttons.DME);
         kprts.click(Buttons.VOR);
         assertFalse(kprts.isOn(Light.APK));
         assertTrue(kprts.isOn(Light.VOR));
