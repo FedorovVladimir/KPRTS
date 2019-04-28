@@ -7,13 +7,8 @@ public class PathKPRTS1 extends PathKPRTS {
     private RoundButton1 roundButton = new RoundButton1();
 
     PathKPRTS1() {
+        allLights_off();
         lights.put("APK", true);
-        lights.put("VOR", false);
-        lights.put("DME", false);
-        lights.put("ILS", false);
-        lights.put("MLS", false);
-        lights.put("RSBN", false);
-        lights.put("MRP", false);
 
         panels.put(0, "        ");
         panels.put(1, "   150,0");
@@ -51,33 +46,21 @@ public class PathKPRTS1 extends PathKPRTS {
             panels.put(1, "  108,10");
             panels.put(2, " ВПП   0");
             panels.put(3, "ПОСД ILS");
-            lights.put("APK", false);
-            lights.put("VOR", false);
-            lights.put("DME", false);
+            allLights_off();
             lights.put("ILS", true);
-            lights.put("MLS", false);
-            lights.put("RSBN", false);
         }
         if (button.equals("MLS")) {
             panels.put(1, "     500");
             panels.put(2, "  Аз   0");
             panels.put(3, "        ");
-            lights.put("APK", false);
-            lights.put("VOR", false);
-            lights.put("DME", false);
-            lights.put("ILS", false);
+            allLights_off();
             lights.put("MLS", true);
-            lights.put("RSBN", false);
         }
         if (button.equals("RSBN")) {
             panels.put(1, "НАВ 0001");
             panels.put(2, "НАВ 0001");
             panels.put(3, "        ");
-            lights.put("APK", false);
-            lights.put("VOR", false);
-            lights.put("DME", false);
-            lights.put("ILS", false);
-            lights.put("MLS", false);
+            allLights_off();
             lights.put("RSBN", true);
         }
     }
@@ -93,11 +76,7 @@ public class PathKPRTS1 extends PathKPRTS {
             panels.put(1, "ОПОЗНАВ ");
             panels.put(2, "ОПОЗНАВ ");
             panels.put(3, "        ");
-            lights.put("APK", false);
-            lights.put("VOR", false);
-            lights.put("DME", false);
-            lights.put("ILS", false);
-            lights.put("MLS", false);
+            allLights_off();
             lights.put("RSBN", true);
         }
     }
@@ -108,11 +87,7 @@ public class PathKPRTS1 extends PathKPRTS {
             panels.put(1, "        ");
             panels.put(2, "        ");
             panels.put(3, "        ");
-            lights.put("APK", false);
-            lights.put("VOR", false);
-            lights.put("DME", false);
-            lights.put("ILS", false);
-            lights.put("MLS", false);
+            allLights_off();
             lights.put("RSBN", true);
         }
     }
@@ -123,5 +98,15 @@ public class PathKPRTS1 extends PathKPRTS {
 
     private boolean getAz() {
         return az;
+    }
+
+    private void allLights_off() {
+        lights.put("APK", false);
+        lights.put("VOR", false);
+        lights.put("DME", false);
+        lights.put("ILS", false);
+        lights.put("MLS", false);
+        lights.put("RSBN", false);
+        lights.put("MRP", false);
     }
 }
