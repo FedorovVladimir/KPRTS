@@ -1,6 +1,5 @@
 package model;
 
-import javax.inject.Named;
 
 public class PathKPRTS1 extends PathKPRTS {
 
@@ -47,6 +46,39 @@ public class PathKPRTS1 extends PathKPRTS {
         }
         if (button.equals("APK") || button.equals("VOR") || button.equals("DME")) {
             first.click(button, this);
+        }
+        if (button.equals("ILS")) {
+            panels.put(1, "  108,10");
+            panels.put(2, " ВПП   0");
+            panels.put(3, "ПОСД ILS");
+            lights.put("APK", false);
+            lights.put("VOR", false);
+            lights.put("DME", false);
+            lights.put("ILS", true);
+            lights.put("MLS", false);
+            lights.put("RSBN", false);
+        }
+        if (button.equals("MLS")) {
+            panels.put(1, "     500");
+            panels.put(2, "  Аз   0");
+            panels.put(3, "        ");
+            lights.put("APK", false);
+            lights.put("VOR", false);
+            lights.put("DME", false);
+            lights.put("ILS", false);
+            lights.put("MLS", true);
+            lights.put("RSBN", false);
+        }
+        if (button.equals("RSBN")) {
+            panels.put(1, "НАВ 0001");
+            panels.put(2, "НАВ 0001");
+            panels.put(3, "        ");
+            lights.put("APK", false);
+            lights.put("VOR", false);
+            lights.put("DME", false);
+            lights.put("ILS", false);
+            lights.put("MLS", false);
+            lights.put("RSBN", true);
         }
     }
 

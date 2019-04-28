@@ -14,9 +14,9 @@ public class KPRTS {
 
     public void click(String button) {
         if (on) {
-            if (button.equals("APK") || button.equals("VOR") || button.equals("DME") || button.equals("upSwap") || button.equals("MFK")) {
+            //if (button.equals("APK") || button.equals("VOR") || button.equals("DME") || button.equals("upSwap") || button.equals("MFK")) {
                 path1.click(button);
-            }
+            //}
         }
     }
 
