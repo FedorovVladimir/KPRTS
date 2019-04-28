@@ -1,5 +1,6 @@
 package bdd;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import model.KPRTS;
@@ -42,5 +43,15 @@ public class KPRTS_BDD {
         } else {
             kprts.clickRight(2, Integer.parseInt(size));
         }
+    }
+
+    @When("^Я зажал кнопку \"([^\"]*)\"$")
+    public void яЗажалКнопку(String buttonName) throws Throwable {
+        kprts.click_on(buttonName);
+    }
+
+    @When("^Я отжал кнопку \"([^\"]*)\"$")
+    public void яОтжалКнопку(String buttonName) throws Throwable {
+        kprts.click_off(buttonName);
     }
 }

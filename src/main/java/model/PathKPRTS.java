@@ -26,4 +26,8 @@ abstract class PathKPRTS {
     }
 
     abstract void clickRight(int size);
+
+    abstract void click_on(String button);
+
+    abstract void click_off(String button);
 }

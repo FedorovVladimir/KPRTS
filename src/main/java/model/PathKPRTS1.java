@@ -87,6 +87,16 @@ public class PathKPRTS1 extends PathKPRTS {
         roundButton.clickRight(panels, size, getAz());
     }
 
+    @Override
+    void click_on(String button) {
+
+    }
+
+    @Override
+    void click_off(String button) {
+
+    }
+
     void setAz(boolean az) {
         this.az = az;
     }

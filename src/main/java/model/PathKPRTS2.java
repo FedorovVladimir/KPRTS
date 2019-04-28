@@ -22,4 +22,14 @@ public class PathKPRTS2 extends PathKPRTS {
     public void clickRight(int size) {
 
     }
+
+    @Override
+    void click_on(String button) {
+
+    }
+
+    @Override
+    void click_off(String button) {
+
+    }
 }
