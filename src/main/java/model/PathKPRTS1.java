@@ -89,12 +89,32 @@ public class PathKPRTS1 extends PathKPRTS {
 
     @Override
     void click_on(String button) {
-
+        if (button.equals("OPZ")) {
+            panels.put(1, "ОПОЗНАВ ");
+            panels.put(2, "ОПОЗНАВ ");
+            panels.put(3, "        ");
+            lights.put("APK", false);
+            lights.put("VOR", false);
+            lights.put("DME", false);
+            lights.put("ILS", false);
+            lights.put("MLS", false);
+            lights.put("RSBN", true);
+        }
     }
 
     @Override
     void click_off(String button) {
-
+        if (button.equals("OPZ")) {
+            panels.put(1, "        ");
+            panels.put(2, "        ");
+            panels.put(3, "        ");
+            lights.put("APK", false);
+            lights.put("VOR", false);
+            lights.put("DME", false);
+            lights.put("ILS", false);
+            lights.put("MLS", false);
+            lights.put("RSBN", true);
+        }
     }
 
     void setAz(boolean az) {
