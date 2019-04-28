@@ -5,11 +5,11 @@ public class PathKPRTS1 extends PathKPRTS {
 
     private Buttons3 first = new Buttons3();
     private RoundButton1 roundButton = new RoundButton1();
+    private State roundState = State.NONE;
 
     PathKPRTS1() {
         allLights_off();
         lights.put("APK", true);
-
         panels.put(0, "        ");
         panels.put(1, "   150,0");
         panels.put(2, "   150,0");
@@ -17,6 +17,10 @@ public class PathKPRTS1 extends PathKPRTS {
     }
 
     private boolean az = false;
+
+    public void setRoundState(State roundState) {
+        this.roundState = roundState;
+    }
 
     @Override
     public void click(String button) {
@@ -57,17 +61,21 @@ public class PathKPRTS1 extends PathKPRTS {
             lights.put("MLS", true);
         }
         if (button.equals("RSBN")) {
+            roundState = State.NAV;
             panels.put(1, "НАВ 0001");
             panels.put(2, "НАВ 0001");
             panels.put(3, "        ");
             allLights_off();
             lights.put("RSBN", true);
         }
+        if (button.equals("MPR")) {
+            lights.put("MPR", !lights.get("MPR"));
+        }
     }
 
     @Override
     public void clickRight(int size) {
-        roundButton.clickRight(panels, size, getAz());
+        roundButton.clickRight(panels, size, roundState);
     }
 
     @Override
@@ -107,6 +115,6 @@ public class PathKPRTS1 extends PathKPRTS {
         lights.put("ILS", false);
         lights.put("MLS", false);
         lights.put("RSBN", false);
-        lights.put("MRP", false);
+        lights.put("MPR", false);
     }
 }

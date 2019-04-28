@@ -46,6 +46,7 @@ class Buttons3 {
                 path.panels.put(2, "  Аз   0");
                 path.panels.put(3, "       П");
             }
+            path.setRoundState(State.AZ);
             vor = true;
         } else {
             vor = false;
