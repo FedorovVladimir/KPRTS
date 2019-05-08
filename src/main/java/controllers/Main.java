@@ -12,7 +12,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/KPRTS.fxml"));
         primaryStage.setTitle("Комплексный Пульт Радиотехнических Средств");
-        primaryStage.setScene(new Scene(root, 600, 791));
+        primaryStage.setScene(new Scene(root, 481, 624));
         primaryStage.show();
     }
 

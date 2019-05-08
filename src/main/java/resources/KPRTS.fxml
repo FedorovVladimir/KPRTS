@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Text?>
 
-
-<Pane fx:controller="controllers.KPRTSController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="791.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="481.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.KPRTSController">
    <children>
-      <Text layoutX="267.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="i am kprts" />
+      <ImageView fitHeight="630.0" fitWidth="481.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@png/LicPan.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
