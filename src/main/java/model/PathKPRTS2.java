@@ -3,6 +3,7 @@ package model;
 public class PathKPRTS2 extends PathKPRTS {
 
     private boolean[] state = new boolean[]{
+            false,
             true,
             false,
             false,
@@ -16,6 +17,17 @@ public class PathKPRTS2 extends PathKPRTS {
             true,
             true,
             true,
+            true,
+    };
+
+    private boolean[] am = new boolean[]{
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
     };
 
     PathKPRTS2() {
@@ -68,11 +80,13 @@ public class PathKPRTS2 extends PathKPRTS {
         }
         if (button.equals("PS")) {
             int k = getState();
-            ps[k - 1] = !ps[k - 1];
+            ps[k] = !ps[k];
             updatePS(k);
         }
         if (button.equals("AM")) {
-            panels.put(6, "ПШ    AM");
+            int k = getState();
+            am[k] = !am[k];
+            updatePS(k);
         }
     }
 
@@ -95,23 +109,31 @@ public class PathKPRTS2 extends PathKPRTS {
         for (int i = 0; i < state.length; i++) {
             state[i] = false;
         }
-        state[n - 1] = true;
+        state[n] = true;
     }
 
     private int getState() {
         for (int i = 0; i < state.length; i++) {
             if (state[i]) {
-                return i + 1;
+                return i;
             }
         }
         return -1;
     }
 
     private void updatePS(int k) {
-        if (ps[k - 1]) {
-            panels.put(6, "ПШ      ");
+        if (ps[k]) {
+            if (am[k]) {
+                panels.put(6, "ПШ    AM");
+            } else {
+                panels.put(6, "ПШ      ");
+            }
         } else {
-            panels.put(6, "        ");
+            if (am[k]) {
+                panels.put(6, "      AM");
+            } else {
+                panels.put(6, "        ");
+            }
         }
     }
 
