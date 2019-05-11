@@ -2,6 +2,8 @@ package model;
 
 public class PathKPRTS2 extends PathKPRTS {
 
+    private boolean rd = true;
+
     private boolean[] state = new boolean[]{
             false,
             true,
@@ -82,10 +84,11 @@ public class PathKPRTS2 extends PathKPRTS {
             setState(3);
             updatePS(3);
             allLights_off();
-            panels.put(4, "САОД   Д");
-            panels.put(6, "САОД   Д");
+            if (rd) {
+                panels.put(4, "САОД   Д");
+                panels.put(6, "САОД   Д");
+            }
             lights.put("MB3", true);
-
 
             if (B833[3]) {
                 lights.put("B833", true);
@@ -128,6 +131,14 @@ public class PathKPRTS2 extends PathKPRTS {
             int k = getState();
             if (k == 1 || k == 2 || k == 3) {
                 pa[k] = !pa[k];
+                updatePS(k);
+            }
+        }
+        if (button.equals("RD")) {
+            int k = getState();
+            if (k == 3) {
+                rd = !rd;
+                panels.put(4, " 118,000");
                 updatePS(k);
             }
         }
