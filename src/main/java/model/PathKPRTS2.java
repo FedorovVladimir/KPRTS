@@ -2,6 +2,8 @@ package model;
 
 public class PathKPRTS2 extends PathKPRTS {
 
+    private RoundButton2 roundButton = new RoundButton2();
+
     private boolean rd = true;
 
     private boolean[] state = new boolean[]{
@@ -150,7 +152,7 @@ public class PathKPRTS2 extends PathKPRTS {
 
     @Override
     public void clickRight(int size) {
-
+        roundButton.clickRight(size, this);
     }
 
     @Override
