@@ -2,6 +2,8 @@ package model;
 
 public class PathKPRTS2 extends PathKPRTS {
 
+    private boolean ps = true;
+
     PathKPRTS2() {
         allLights_off();
         lights.put("MB1", true);
@@ -41,7 +43,12 @@ public class PathKPRTS2 extends PathKPRTS {
             lights.put("DKMB2", true);
         }
         if (button.equals("PS")) {
-            panels.put(6, "        ");
+            ps = !ps;
+            if (ps) {
+                panels.put(6, "ПШ      ");
+            } else {
+                panels.put(6, "        ");
+            }
         }
     }
 
