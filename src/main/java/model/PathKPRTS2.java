@@ -2,7 +2,21 @@ package model;
 
 public class PathKPRTS2 extends PathKPRTS {
 
-    private boolean ps = true;
+    private boolean[] state = new boolean[]{
+            true,
+            false,
+            false,
+            false,
+            false,
+    };
+
+    private boolean[] ps = new boolean[]{
+            true,
+            true,
+            true,
+            true,
+            true,
+    };
 
     PathKPRTS2() {
         allLights_off();
@@ -15,40 +29,47 @@ public class PathKPRTS2 extends PathKPRTS {
     @Override
     public void click(String button) {
         if (button.equals("MB1")) {
+            setState(1);
+            updatePS(1);
             allLights_off();
             lights.put("MB1", true);
             panels.put(4, " 118,000");
             panels.put(6, "ПШ      ");
         }
         if (button.equals("MB2")) {
+            setState(2);
+            updatePS(2);
             allLights_off();
             lights.put("MB2", true);
         }
         if (button.equals("MB3")) {
+            setState(3);
+            updatePS(3);
             allLights_off();
             panels.put(4, "САОД   Д");
             panels.put(6, "САОД   Д");
             lights.put("MB3", true);
         }
         if (button.equals("DKMB1")) {
+            setState(4);
+            updatePS(4);
             allLights_off();
             panels.put(4, "2000,000");
             panels.put(5, "2000,000");
             lights.put("DKMB1", true);
         }
         if (button.equals("DKMB2")) {
+            setState(5);
+            updatePS(5);
             allLights_off();
             panels.put(4, "2000,000");
             panels.put(5, "2000,000");
             lights.put("DKMB2", true);
         }
         if (button.equals("PS")) {
-            ps = !ps;
-            if (ps) {
-                panels.put(6, "ПШ      ");
-            } else {
-                panels.put(6, "        ");
-            }
+            int k = getState();
+            ps[k - 1] = !ps[k - 1];
+            updatePS(k);
         }
     }
 
@@ -65,6 +86,30 @@ public class PathKPRTS2 extends PathKPRTS {
     @Override
     void click_off(String button) {
 
+    }
+
+    private void setState(int n) {
+        for (int i = 0; i < state.length; i++) {
+            state[i] = false;
+        }
+        state[n - 1] = true;
+    }
+
+    private int getState() {
+        for (int i = 0; i < state.length; i++) {
+            if (state[i]) {
+                return i + 1;
+            }
+        }
+        return -1;
+    }
+
+    private void updatePS(int k) {
+        if (ps[k - 1]) {
+            panels.put(6, "ПШ      ");
+        } else {
+            panels.put(6, "        ");
+        }
     }
 
     private void allLights_off() {
