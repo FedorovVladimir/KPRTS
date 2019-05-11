@@ -138,7 +138,11 @@ public class PathKPRTS2 extends PathKPRTS {
             int k = getState();
             if (k == 3) {
                 rd = !rd;
-                panels.put(4, " 118,000");
+                if (rd) {
+                    panels.put(4, "САОД   Д");
+                } else {
+                    panels.put(4, " 118,000");
+                }
                 updatePS(k);
             }
         }
@@ -176,6 +180,10 @@ public class PathKPRTS2 extends PathKPRTS {
     }
 
     private void updatePS(int k) {
+        if (k == 3 && rd) {
+            panels.put(6, "САОД   Д");
+            return;
+        }
         if (ps[k]) {
             if (am[k]) {
                 panels.put(6, "ПШ    АМ");
