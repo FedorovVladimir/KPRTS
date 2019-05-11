@@ -2,7 +2,10 @@ package model;
 
 public class PathKPRTS2 extends PathKPRTS {
 
-    private RoundButton2 roundButton = new RoundButton2();
+    // max = 136.975
+    private double numberMB1 = 118.0;
+
+    private double numberMB2 = 118.0;
 
     private boolean rd = true;
 
@@ -65,7 +68,7 @@ public class PathKPRTS2 extends PathKPRTS {
             setState(1);
             updatePS(1);
             allLights_off();
-            roundButton.setNumberMB1(this);
+            setNumberMB1(this);
             lights.put("MB1", true);
             panels.put(4, " 118,000");
 
@@ -77,7 +80,7 @@ public class PathKPRTS2 extends PathKPRTS {
             setState(2);
             updatePS(2);
             allLights_off();
-            roundButton.setNumberMB2(this);
+            setNumberMB2(this);
             lights.put("MB2", true);
 
             if (B833[2]) {
@@ -154,7 +157,27 @@ public class PathKPRTS2 extends PathKPRTS {
 
     @Override
     public void clickRight(int size) {
-        roundButton.clickRight(size, this);
+        int k = getState();
+        if (k == 1) {
+            numberMB1 += 0.025 * size;
+            if (numberMB1 < 118.0) {
+                numberMB1 = 118.0;
+            }
+            if (numberMB1 > 136.975) {
+                numberMB1 = 136.975;
+            }
+            panels.put(5, String.format(" %3.3f", numberMB1));
+        }
+        if (k == 2) {
+            numberMB2 += 0.025 * size;
+            if (numberMB2 < 118.0) {
+                numberMB2 = 118.0;
+            }
+            if (numberMB2 > 136.975) {
+                numberMB2 = 136.975;
+            }
+            panels.put(5, String.format(" %3.3f", numberMB2));
+        }
     }
 
     @Override
@@ -174,7 +197,7 @@ public class PathKPRTS2 extends PathKPRTS {
         state[n] = true;
     }
 
-    int getState() {
+    private int getState() {
         for (int i = 0; i < state.length; i++) {
             if (state[i]) {
                 return i;
@@ -218,5 +241,13 @@ public class PathKPRTS2 extends PathKPRTS {
         lights.put("DKMB1", false);
         lights.put("DKMB2", false);
         lights.put("B833", false);
+    }
+
+    private void setNumberMB1(PathKPRTS2 kprts2) {
+        kprts2.panels.put(5, String.format(" %3.3f", numberMB1));
+    }
+
+    private void setNumberMB2(PathKPRTS2 kprts2) {
+        kprts2.panels.put(5, String.format(" %3.3f", numberMB2));
     }
 }
