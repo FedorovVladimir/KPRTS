@@ -34,6 +34,12 @@ public class PathKPRTS2 extends PathKPRTS {
             panels.put(5, "2000,000");
             lights.put("DKMB1", true);
         }
+        if (button.equals("DKMB2")) {
+            allLights_off();
+            panels.put(4, "2000,000");
+            panels.put(5, "2000,000");
+            lights.put("DKMB2", true);
+        }
     }
 
     @Override
