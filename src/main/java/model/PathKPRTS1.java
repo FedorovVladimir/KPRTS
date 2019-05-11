@@ -18,7 +18,7 @@ public class PathKPRTS1 extends PathKPRTS {
 
     private boolean az = false;
 
-    public void setRoundState(State roundState) {
+    void setRoundState(State roundState) {
         this.roundState = roundState;
     }
 
@@ -55,7 +55,7 @@ public class PathKPRTS1 extends PathKPRTS {
         }
         if (button.equals("MLS")) {
             panels.put(1, "     500");
-            panels.put(2, "  Аз   0");
+            panels.put(2, "  АЗ   0");
             panels.put(3, "        ");
             allLights_off();
             lights.put("MLS", true);

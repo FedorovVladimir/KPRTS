@@ -167,7 +167,7 @@ public class PathKPRTS2 extends PathKPRTS {
     private void updatePS(int k) {
         if (ps[k]) {
             if (am[k]) {
-                panels.put(6, "ПШ    AM");
+                panels.put(6, "ПШ    АМ");
             } else {
                 if (pa[k]) {
                     panels.put(6, "ПШ    ПА");
@@ -177,7 +177,7 @@ public class PathKPRTS2 extends PathKPRTS {
             }
         } else {
             if (am[k]) {
-                panels.put(6, "      AM");
+                panels.put(6, "      АМ");
             } else {
                 if (pa[k]) {
                     panels.put(6, "      ПА");
