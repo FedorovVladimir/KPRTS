@@ -71,6 +71,9 @@ public class PathKPRTS2 extends PathKPRTS {
             ps[k - 1] = !ps[k - 1];
             updatePS(k);
         }
+        if (button.equals("AM")) {
+            panels.put(6, "ПШ    AM");
+        }
     }
 
     @Override
