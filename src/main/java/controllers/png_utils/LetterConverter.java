@@ -10,33 +10,28 @@ public class LetterConverter {
     private final double WIDTH = 14;
     private final double OFFSET_X = 1;
     private final double OFFSET_Y = 0;
+    private final String alphabet = "0123456789АБВГДЕЖЗИЙКЛМНОПРСТУФ   ШILSM   3.,";
 
     public void getImageByLetter(char letter, ImageView imageView) {
-        switch (letter) {
-            case '0': {
-                getCrop(0, imageView);
-                break;
-            }
-            case '1': {
-                getCrop(1, imageView);
-                break;
-            }
-            case '2': {
-                getCrop(2, imageView);
-                break;
-            }
-            case '3': {
-                getCrop(3, imageView);
-                break;
-            }
-            default: {
-                System.out.println("Не найден эквивалент символа " + letter);
-            }
+        imageView.setImage(image);
+        int offset = alphabet.indexOf(letter);
+        if (offset < 0) {
+            offset = alphabet.indexOf(' ');
         }
+        imageView.setViewport(new Rectangle2D(OFFSET_X * offset * WIDTH, OFFSET_Y, WIDTH, HEIGHT));
+
     }
 
-    private void getCrop(int offset, ImageView imageView) {
-        imageView.setImage(image);
-        imageView.setViewport(new Rectangle2D(OFFSET_X * offset, OFFSET_Y, WIDTH, HEIGHT));
+    public void setTextInPanel(ImageView[] panel, String sourceText) {
+        char[] text = sourceText.toCharArray();
+        int textOffset = 1;
+        for (int i = panel.length - 1; i >= 0; i--) {
+            if (textOffset <= text.length) {
+                getImageByLetter(text[text.length - textOffset], panel[i]);
+                textOffset++;
+            } else {
+                getImageByLetter(' ', panel[i]);
+            }
+        }
     }
 }
