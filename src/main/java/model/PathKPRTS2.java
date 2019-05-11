@@ -113,6 +113,9 @@ public class PathKPRTS2 extends PathKPRTS {
             B833[k] = !B833[k];
             lights.put("B833", true);
         }
+        if (button.equals("PA")) {
+            panels.put(6, "ПШ    ПА");
+        }
     }
 
     @Override
