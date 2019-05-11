@@ -3,13 +3,8 @@ package model;
 public class PathKPRTS2 extends PathKPRTS {
 
     PathKPRTS2() {
+        allLights_off();
         lights.put("MB1", true);
-        lights.put("MB2", false);
-        lights.put("MB3", false);
-        lights.put("DKMB1", false);
-        lights.put("DKMB2", false);
-        lights.put("B833", false);
-
         panels.put(4, " 118,000");
         panels.put(5, " 118,000");
         panels.put(6, "ПШ      ");
@@ -17,7 +12,10 @@ public class PathKPRTS2 extends PathKPRTS {
 
     @Override
     public void click(String button) {
-
+        if (button.equals("MB1")) {
+            allLights_off();
+            lights.put("MB2", true);
+        }
     }
 
     @Override
@@ -33,5 +31,14 @@ public class PathKPRTS2 extends PathKPRTS {
     @Override
     void click_off(String button) {
 
+    }
+
+    private void allLights_off() {
+        lights.put("MB1", false);
+        lights.put("MB2", false);
+        lights.put("MB3", false);
+        lights.put("DKMB1", false);
+        lights.put("DKMB2", false);
+        lights.put("B833", false);
     }
 }
