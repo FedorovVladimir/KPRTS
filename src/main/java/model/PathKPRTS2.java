@@ -37,6 +37,16 @@ public class PathKPRTS2 extends PathKPRTS {
             false,
     };
 
+    private boolean[] pa = new boolean[]{
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+    };
+
     PathKPRTS2() {
         allLights_off();
         lights.put("MB1", true);
@@ -53,7 +63,6 @@ public class PathKPRTS2 extends PathKPRTS {
             allLights_off();
             lights.put("MB1", true);
             panels.put(4, " 118,000");
-            panels.put(6, "ПШ      ");
 
             if (B833[1]) {
                 lights.put("B833", true);
@@ -110,11 +119,17 @@ public class PathKPRTS2 extends PathKPRTS {
         }
         if (button.equals("B833")) {
             int k = getState();
-            B833[k] = !B833[k];
-            lights.put("B833", true);
+            if (k == 1 || k == 2 || k == 3) {
+                B833[k] = !B833[k];
+                lights.put("B833", true);
+            }
         }
         if (button.equals("PA")) {
-            panels.put(6, "ПШ    ПА");
+            int k = getState();
+            if (k == 1 || k == 2 || k == 3) {
+                pa[k] = !pa[k];
+                updatePS(k);
+            }
         }
     }
 
@@ -154,13 +169,21 @@ public class PathKPRTS2 extends PathKPRTS {
             if (am[k]) {
                 panels.put(6, "ПШ    AM");
             } else {
-                panels.put(6, "ПШ      ");
+                if (pa[k]) {
+                    panels.put(6, "ПШ    ПА");
+                } else {
+                    panels.put(6, "ПШ      ");
+                }
             }
         } else {
             if (am[k]) {
                 panels.put(6, "      AM");
             } else {
-                panels.put(6, "        ");
+                if (pa[k]) {
+                    panels.put(6, "      ПА");
+                } else {
+                    panels.put(6, "        ");
+                }
             }
         }
     }
