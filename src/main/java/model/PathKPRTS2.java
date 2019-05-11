@@ -10,7 +10,9 @@ public class PathKPRTS2 extends PathKPRTS {
         lights.put("DKMB2", false);
         lights.put("B833", false);
 
-        panels.put(0, "        ");
+        panels.put(4, " 118,000");
+        panels.put(5, " 118,000");
+        panels.put(6, "ПШ      ");
     }
 
     @Override
