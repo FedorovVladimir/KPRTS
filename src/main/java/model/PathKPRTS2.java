@@ -1,5 +1,7 @@
 package model;
 
+import com.sun.xml.internal.bind.v2.TODO;
+
 public class PathKPRTS2 extends PathKPRTS {
 
     // max = 136.975
@@ -8,6 +10,8 @@ public class PathKPRTS2 extends PathKPRTS {
     private double numberMB2 = 118.0;
 
     private double numberDKMB1 = 2000.0;
+
+    private double numberDKMB2 = 2000.0;
 
     private boolean rd = true;
 
@@ -109,15 +113,14 @@ public class PathKPRTS2 extends PathKPRTS {
             allLights_off();
             setNumberDKMB1();
             panels.put(4, "2000,000");
-            panels.put(5, "2000,000");
             lights.put("DKMB1", true);
         }
         if (button.equals("DKMB2")) {
             setState(5);
             updatePS(5);
             allLights_off();
+            setNumberDKMB2();
             panels.put(4, "2000,000");
-            panels.put(5, "2000,000");
             lights.put("DKMB2", true);
         }
         if (button.equals("PS")) {
@@ -183,7 +186,19 @@ public class PathKPRTS2 extends PathKPRTS {
         }
         if (k == 4) {
             numberDKMB1 += 0.025 * size;
+            if (numberDKMB1 < 2000.0) {
+                numberDKMB1 = 2000.0;
+            }
+            // todo max
             panels.put(5, String.format("%4.3f", numberDKMB1));
+        }
+        if (k == 5) {
+            numberDKMB2 += 0.025 * size;
+            if (numberDKMB2 < 2000.0) {
+                numberDKMB2 = 2000.0;
+            }
+            // todo max
+            panels.put(5, String.format("%4.3f", numberDKMB2));
         }
     }
 
@@ -260,5 +275,9 @@ public class PathKPRTS2 extends PathKPRTS {
 
     private void setNumberDKMB1() {
         panels.put(5, String.format("%4.3f", numberDKMB1));
+    }
+
+    private void setNumberDKMB2() {
+        panels.put(5, String.format("%4.3f", numberDKMB2));
     }
 }
