@@ -65,6 +65,7 @@ public class PathKPRTS2 extends PathKPRTS {
             setState(1);
             updatePS(1);
             allLights_off();
+            roundButton.setNumberMB1(this);
             lights.put("MB1", true);
             panels.put(4, " 118,000");
 
@@ -76,6 +77,7 @@ public class PathKPRTS2 extends PathKPRTS {
             setState(2);
             updatePS(2);
             allLights_off();
+            roundButton.setNumberMB2(this);
             lights.put("MB2", true);
 
             if (B833[2]) {
@@ -172,7 +174,7 @@ public class PathKPRTS2 extends PathKPRTS {
         state[n] = true;
     }
 
-    private int getState() {
+    int getState() {
         for (int i = 0; i < state.length; i++) {
             if (state[i]) {
                 return i;
