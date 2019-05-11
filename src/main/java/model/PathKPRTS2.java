@@ -88,6 +88,9 @@ public class PathKPRTS2 extends PathKPRTS {
             am[k] = !am[k];
             updatePS(k);
         }
+        if (button.equals("B833")) {
+            lights.put("B833", true);
+        }
     }
 
     @Override
