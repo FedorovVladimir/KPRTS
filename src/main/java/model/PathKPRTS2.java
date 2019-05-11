@@ -7,6 +7,8 @@ public class PathKPRTS2 extends PathKPRTS {
 
     private double numberMB2 = 118.0;
 
+    private double numberDKMB1 = 2000.0;
+
     private boolean rd = true;
 
     private boolean[] state = new boolean[]{
@@ -68,7 +70,7 @@ public class PathKPRTS2 extends PathKPRTS {
             setState(1);
             updatePS(1);
             allLights_off();
-            setNumberMB1(this);
+            setNumberMB1();
             lights.put("MB1", true);
             panels.put(4, " 118,000");
 
@@ -80,7 +82,7 @@ public class PathKPRTS2 extends PathKPRTS {
             setState(2);
             updatePS(2);
             allLights_off();
-            setNumberMB2(this);
+            setNumberMB2();
             lights.put("MB2", true);
 
             if (B833[2]) {
@@ -105,6 +107,7 @@ public class PathKPRTS2 extends PathKPRTS {
             setState(4);
             updatePS(4);
             allLights_off();
+            setNumberDKMB1();
             panels.put(4, "2000,000");
             panels.put(5, "2000,000");
             lights.put("DKMB1", true);
@@ -178,6 +181,10 @@ public class PathKPRTS2 extends PathKPRTS {
             }
             panels.put(5, String.format(" %3.3f", numberMB2));
         }
+        if (k == 4) {
+            numberDKMB1 += 0.025 * size;
+            panels.put(5, String.format("%4.3f", numberDKMB1));
+        }
     }
 
     @Override
@@ -243,11 +250,15 @@ public class PathKPRTS2 extends PathKPRTS {
         lights.put("B833", false);
     }
 
-    private void setNumberMB1(PathKPRTS2 kprts2) {
-        kprts2.panels.put(5, String.format(" %3.3f", numberMB1));
+    private void setNumberMB1() {
+        panels.put(5, String.format(" %3.3f", numberMB1));
     }
 
-    private void setNumberMB2(PathKPRTS2 kprts2) {
-        kprts2.panels.put(5, String.format(" %3.3f", numberMB2));
+    private void setNumberMB2() {
+        panels.put(5, String.format(" %3.3f", numberMB2));
+    }
+
+    private void setNumberDKMB1() {
+        panels.put(5, String.format("%4.3f", numberDKMB1));
     }
 }
