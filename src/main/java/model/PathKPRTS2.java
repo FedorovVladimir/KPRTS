@@ -12,6 +12,10 @@ public class PathKPRTS2 extends PathKPRTS {
 
     @Override
     public void click(String button) {
+        if (button.equals("MB1")) {
+            allLights_off();
+            lights.put("MB1", true);
+        }
         if (button.equals("MB2")) {
             allLights_off();
             lights.put("MB2", true);
