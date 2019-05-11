@@ -11,5 +11,6 @@
             <Image url="@png/LicPan.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="mainNavigation" fitHeight="26.0" fitWidth="140.0" layoutX="55.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </Pane>
