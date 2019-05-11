@@ -7,8 +7,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import model.KPRTS;
 
-import java.awt.event.MouseEvent;
-import java.beans.EventHandler;
 import java.util.ArrayList;
 
 
@@ -53,7 +51,7 @@ public class KPRTSController {
 
     // прочие кнопки
     @FXML
-    private ImageView APK, VOR, DME, ILS, MLS, RSBN, MB1, MB2, MB3;
+    private ImageView APK, VOR, DME, ILS, MLS, RSBN, MB1, MB2, MB3, DKMV1, DKMV2;
 
     private ArrayList<ImageView[]> panels;
 
@@ -119,6 +117,22 @@ public class KPRTSController {
 
         RSBN.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/RSBN.png")));
         RSBN.setViewport(new Rectangle2D(3, 4, 42, 25));
+
+        MB1.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/MB1.png")));
+        MB1.setViewport(new Rectangle2D(3, 4, 42, 25));
+
+        MB2.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/MB2.png")));
+        MB2.setViewport(new Rectangle2D(3, 4, 42, 25));
+
+        MB3.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/MB3.png")));
+        MB3.setViewport(new Rectangle2D(3, 4, 42, 25));
+
+        DKMV1.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/DKMB1.png")));
+        DKMV1.setViewport(new Rectangle2D(3, 4, 42, 25));
+
+        DKMV2.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/DKMB2.png")));
+        DKMV2.setViewport(new Rectangle2D(3, 4, 42, 25));
+
     }
 
     public void setTextOnPanel(int numberOfPanel, String message) {
@@ -196,6 +210,70 @@ public class KPRTSController {
         RSBN.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/RSBN.png")));
         RSBN.setViewport(new Rectangle2D(3, 4, 43, 26));
     }
+
+    @FXML
+    public void MB1Pressed() {
+        MB1.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/MB1.png")));
+        MB1.setViewport(new Rectangle2D(52, 4, 42, 24));
+    }
+
+    @FXML
+    public void MB1Released() {
+        MB1.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/MB1.png")));
+        MB1.setViewport(new Rectangle2D(3, 4, 43, 26));
+    }
+
+    @FXML
+    public void MB2Pressed() {
+        MB2.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/MB2.png")));
+        MB2.setViewport(new Rectangle2D(52, 4, 42, 24));
+    }
+
+    @FXML
+    public void MB2Released() {
+        MB2.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/MB2.png")));
+        MB2.setViewport(new Rectangle2D(3, 4, 43, 26));
+    }
+
+    @FXML
+    public void MB3Pressed() {
+        MB3.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/MB3.png")));
+        MB3.setViewport(new Rectangle2D(52, 4, 42, 24));
+    }
+
+    @FXML
+    public void MB3Released() {
+        MB3.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/MB3.png")));
+        MB3.setViewport(new Rectangle2D(3, 4, 43, 26));
+    }
+
+    @FXML
+    public void DKMV1Pressed() {
+        DKMV1.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/DKMB1.png")));
+        DKMV1.setViewport(new Rectangle2D(52, 4, 42, 24));
+    }
+
+    @FXML
+    public void DKMV1Released() {
+        DKMV1.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/DKMB1.png")));
+        DKMV1.setViewport(new Rectangle2D(3, 4, 43, 26));
+    }
+
+    @FXML
+    public void DKMV2Pressed() {
+        DKMV2.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/DKMB2.png")));
+        DKMV2.setViewport(new Rectangle2D(52, 4, 42, 24));
+    }
+
+    @FXML
+    public void DKMV2Released() {
+        DKMV2.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/DKMB2.png")));
+        DKMV2.setViewport(new Rectangle2D(3, 4, 43, 26));
+    }
+
+
+
+
 
 
     public double getNavigationMain() {
