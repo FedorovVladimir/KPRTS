@@ -30,6 +30,13 @@ public class PathKPRTS2 extends PathKPRTS {
             false,
     };
 
+    private boolean[] B833 = new boolean[]{
+            false,
+            false,
+            false,
+            false,
+    };
+
     PathKPRTS2() {
         allLights_off();
         lights.put("MB1", true);
@@ -47,12 +54,20 @@ public class PathKPRTS2 extends PathKPRTS {
             lights.put("MB1", true);
             panels.put(4, " 118,000");
             panels.put(6, "ПШ      ");
+
+            if (B833[1]) {
+                lights.put("B833", true);
+            }
         }
         if (button.equals("MB2")) {
             setState(2);
             updatePS(2);
             allLights_off();
             lights.put("MB2", true);
+
+            if (B833[2]) {
+                lights.put("B833", true);
+            }
         }
         if (button.equals("MB3")) {
             setState(3);
@@ -61,6 +76,11 @@ public class PathKPRTS2 extends PathKPRTS {
             panels.put(4, "САОД   Д");
             panels.put(6, "САОД   Д");
             lights.put("MB3", true);
+
+
+            if (B833[3]) {
+                lights.put("B833", true);
+            }
         }
         if (button.equals("DKMB1")) {
             setState(4);
@@ -89,6 +109,8 @@ public class PathKPRTS2 extends PathKPRTS {
             updatePS(k);
         }
         if (button.equals("B833")) {
+            int k = getState();
+            B833[k] = !B833[k];
             lights.put("B833", true);
         }
     }
