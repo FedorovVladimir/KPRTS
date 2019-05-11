@@ -15,6 +15,8 @@ public class PathKPRTS2 extends PathKPRTS {
         if (button.equals("MB1")) {
             allLights_off();
             lights.put("MB1", true);
+            panels.put(4, " 118,000");
+            panels.put(6, "ПШ      ");
         }
         if (button.equals("MB2")) {
             allLights_off();
