@@ -2,8 +2,13 @@ package controllers;
 
 import controllers.png_utils.LetterConverter;
 import javafx.fxml.FXML;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import model.KPRTS;
 
+import java.awt.event.MouseEvent;
+import java.beans.EventHandler;
 import java.util.ArrayList;
 
 
@@ -41,14 +46,24 @@ public class KPRTSController {
     private ImageView contactReserve_1, contactReserve_2, contactReserve_3, contactReserve_4,
             contactReserve_5, contactReserve_6, contactReserve_7, contactReserve_8;
 
+    // блок ячеек режима связи
     @FXML
     private ImageView contactMode_1, contactMode_2, contactMode_3, contactMode_4,
             contactMode_5, contactMode_6, contactMode_7, contactMode_8;
 
+    // прочие кнопки
+    @FXML
+    private ImageView APK, VOR, DME, ILS, MLS, RSBN, MB1, MB2, MB3;
+
     private ArrayList<ImageView[]> panels;
+
+    private KPRTS kprts;
 
     @FXML
     public void initialize() {
+        kprts = new KPRTS();
+        // включение - вызвать turnOn в статусе 2
+        kprts.turnOn(2);
         panels = new ArrayList<>();
         ImageView[] mainNavigation = new ImageView[] {
                 mainNavigation_1, mainNavigation_2, mainNavigation_3, mainNavigation_4,
@@ -81,12 +96,107 @@ public class KPRTSController {
         panels.add(mainContact);
         panels.add(reserveContact);
         panels.add(modeContact);
+
+        for (int i = 1; i <= 6; i++) {
+            setTextOnPanel(i, kprts.getTextFromPanel(i));
+            System.out.println(kprts.getTextFromPanel(i));
+        }
+
+        APK.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/ARK.png")));
+        APK.setViewport(new Rectangle2D(3, 4, 42, 25));
+
+        VOR.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/VOR.png")));
+        VOR.setViewport(new Rectangle2D(3, 4, 42, 25));
+
+        DME.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/DME.png")));
+        DME.setViewport(new Rectangle2D(3, 4, 42, 25));
+
+        ILS.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/ILS.png")));
+        ILS.setViewport(new Rectangle2D(3, 4, 42, 25));
+
+        MLS.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/MLS.png")));
+        MLS.setViewport(new Rectangle2D(3, 4, 42, 25));
+
+        RSBN.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/RSBN.png")));
+        RSBN.setViewport(new Rectangle2D(3, 4, 42, 25));
     }
 
     public void setTextOnPanel(int numberOfPanel, String message) {
         int concreteNum = numberOfPanel - 1;
         new LetterConverter().setTextInPanel(panels.get(concreteNum), message);
     }
+
+    @FXML
+    public void ARKPressed() {
+        APK.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/ARK.png")));
+        APK.setViewport(new Rectangle2D(52, 4, 42, 24));
+    }
+
+    @FXML
+    public void ARKReleased() {
+        APK.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/ARK.png")));
+        APK.setViewport(new Rectangle2D(3, 4, 43, 26));
+    }
+
+    @FXML
+    public void VORPressed() {
+        VOR.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/VOR.png")));
+        VOR.setViewport(new Rectangle2D(52, 4, 42, 24));
+    }
+
+    @FXML
+    public void VORReleased() {
+        VOR.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/VOR.png")));
+        VOR.setViewport(new Rectangle2D(3, 4, 43, 26));
+    }
+
+    @FXML
+    public void DMEPressed() {
+        DME.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/DME.png")));
+        DME.setViewport(new Rectangle2D(52, 4, 42, 24));
+    }
+
+    @FXML
+    public void DMEReleased() {
+        DME.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/DME.png")));
+        DME.setViewport(new Rectangle2D(3, 4, 43, 26));
+    }
+    @FXML
+    public void ILSPressed() {
+        ILS.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/ILS.png")));
+        ILS.setViewport(new Rectangle2D(52, 4, 42, 24));
+    }
+
+    @FXML
+    public void ILSReleased() {
+        ILS.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/ILS.png")));
+        ILS.setViewport(new Rectangle2D(3, 4, 43, 26));
+    }
+
+    @FXML
+    public void MLSPressed() {
+        MLS.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/MLS.png")));
+        MLS.setViewport(new Rectangle2D(52, 4, 42, 24));
+    }
+
+    @FXML
+    public void MLSReleased() {
+        MLS.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/MLS.png")));
+        MLS.setViewport(new Rectangle2D(3, 4, 43, 26));
+    }
+
+    @FXML
+    public void RSBNPressed() {
+        RSBN.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/RSBN.png")));
+        RSBN.setViewport(new Rectangle2D(52, 4, 42, 24));
+    }
+
+    @FXML
+    public void RSBNReleased() {
+        RSBN.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/RSBN.png")));
+        RSBN.setViewport(new Rectangle2D(3, 4, 43, 26));
+    }
+
 
     public double getNavigationMain() {
         return navigationMain;
