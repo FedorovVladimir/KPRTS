@@ -51,11 +51,11 @@ public class KPRTSController {
 
     // прочие квадратные кнопки
     @FXML
-    private ImageView APK, VOR, DME, ILS, MLS, RSBN, MB1, MB2, MB3, DKMV1, DKMV2;
+    private ImageView APK, VOR, DME, ILS, MLS, RSBN, MB1, MB2, MB3, DKMV1, DKMV2, CHNGNav, CHNGCont;
 
     // прочие круглые кнопки
     @FXML
-    private  ImageView VSS, MRP, Eight33, AM, RD, PA, PS;
+    private  ImageView VSS, MRP, OPZ, PSD, MFK, Eight33, AM, RD, PA, PS;
 
     private ArrayList<ImageView[]> panels;
 
@@ -158,6 +158,20 @@ public class KPRTSController {
         PS.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/PS.png")));
         PS.setViewport(new Rectangle2D(0, 0, 32, 32));
 
+        OPZ.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/KnOPZ.png")));
+        OPZ.setViewport(new Rectangle2D(0, 0, 32, 32));
+
+        PSD.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/KnPSD.png")));
+        PSD.setViewport(new Rectangle2D(0, 0, 32, 32));
+
+        MFK.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/MFK.png")));
+        MFK.setViewport(new Rectangle2D(0, 0, 32, 32));
+
+        CHNGNav.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/arrow.png")));
+        CHNGNav.setViewport(new Rectangle2D(3, 4, 42, 25));
+
+        CHNGCont.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/arrow.png")));
+        CHNGCont.setViewport(new Rectangle2D(3, 4, 42, 25));
     }
 
     public void setTextOnPanel(int numberOfPanel, String message) {
@@ -200,6 +214,7 @@ public class KPRTSController {
         DME.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/DME.png")));
         DME.setViewport(new Rectangle2D(3, 4, 43, 26));
     }
+
     @FXML
     public void ILSPressed() {
         ILS.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/ILS.png")));
@@ -380,8 +395,65 @@ public class KPRTSController {
         PS.setViewport(new Rectangle2D(0, 0, 32, 32));
     }
 
+    @FXML
+    public void OPZPressed() {
+        OPZ.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/KnOPZ.png")));
+        OPZ.setViewport(new Rectangle2D(34, 0, 32, 32));
+    }
 
+    @FXML
+    public void OPZReleased() {
+        OPZ.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/KnOPZ.png")));
+        OPZ.setViewport(new Rectangle2D(0, 0, 32, 32));
+    }
 
+    @FXML
+    public void PSDPressed() {
+        PSD.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/KnPSD.png")));
+        PSD.setViewport(new Rectangle2D(34, 0, 32, 32));
+    }
+
+    @FXML
+    public void PSDReleased() {
+        PSD.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/KnPSD.png")));
+        PSD.setViewport(new Rectangle2D(0, 0, 32, 32));
+    }
+
+    @FXML
+    public void MFKPressed() {
+        MFK.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/MFK.png")));
+        MFK.setViewport(new Rectangle2D(34, 0, 32, 32));
+    }
+
+    @FXML
+    public void MFKReleased() {
+        MFK.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/MFK.png")));
+        MFK.setViewport(new Rectangle2D(0, 0, 32, 32));
+    }
+
+    @FXML
+    public void CHNGNavPressed() {
+        CHNGNav.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/arrow.png")));
+        CHNGNav.setViewport(new Rectangle2D(52, 4, 42, 24));
+    }
+
+    @FXML
+    public void CHNGNavReleased() {
+        CHNGNav.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/arrow.png")));
+        CHNGNav.setViewport(new Rectangle2D(3, 4, 43, 26));
+    }
+
+    @FXML
+    public void CHNGContPressed() {
+        CHNGCont.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/arrow.png")));
+        CHNGCont.setViewport(new Rectangle2D(52, 4, 42, 24));
+    }
+
+    @FXML
+    public void CHNGContReleased() {
+        CHNGCont.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/arrow.png")));
+        CHNGCont.setViewport(new Rectangle2D(3, 4, 43, 26));
+    }
 
 
 
