@@ -14,7 +14,7 @@ class Buttons3 {
                 path.lights.put("VOR", true);
                 path.lights.put("DME", true);
                 path.panels.put(1, "  108,00");
-                path.panels.put(2, "  Аз   0");
+                path.panels.put(2, "  АЗ   0");
                 path.panels.put(3, "СПАРЕН П");
             } else {
                 path.lights.put("APK", false);
@@ -36,14 +36,14 @@ class Buttons3 {
                 path.lights.put("VOR", true);
                 path.lights.put("DME", true);
                 path.panels.put(1, "  108,00");
-                path.panels.put(2, "  Аз   0");
+                path.panels.put(2, "  АЗ   0");
                 path.panels.put(3, "СПАРЕН П");
             } else {
                 path.lights.put("APK", false);
                 path.lights.put("VOR", true);
                 path.lights.put("DME", false);
                 path.panels.put(1, "  108,00");
-                path.panels.put(2, "  Аз   0");
+                path.panels.put(2, "  АЗ   0");
                 path.panels.put(3, "       П");
             }
             path.setRoundState(State.AZ);

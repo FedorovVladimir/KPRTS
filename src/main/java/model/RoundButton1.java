@@ -11,7 +11,7 @@ class RoundButton1 {
     void clickRight(Map<Integer, String> panels, int size, State state) {
         if (state == State.AZ) {
             az += size;
-            panels.put(2, String.format("  Аз%4d", az));
+            panels.put(2, String.format("  АЗ%4d", az));
         } else if (state == State.NAV) {
             nav += size;
             panels.put(2, String.format("НАВ %04d", nav));
