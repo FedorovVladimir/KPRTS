@@ -1,12 +1,14 @@
 package controllers;
 
 import controllers.png_utils.LetterConverter;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import model.KPRTS;
-
 import java.util.ArrayList;
 
 
@@ -57,9 +59,24 @@ public class KPRTSController {
     @FXML
     private  ImageView VSS, MRP, OPZ, PSD, MFK, Eight33, AM, RD, PA, PS;
 
+    // главный тумблер
+    @FXML
+    private ImageView mainSwitcher;
+
     private ArrayList<ImageView[]> panels;
 
     private KPRTS kprts;
+
+    // !!!! временная заглушка для состояния аппарата
+    private int state = 0;
+
+    /**
+     * Не получилось обработать одновременное нажатие средней кнопки с правой и левой.
+     * Логика будет немного другой. Нажатие на среднюю тумблер оттягивает.
+     * Повторное нажатие кнопку вжимает обратно
+     */
+
+    private boolean dangerMode = false;
 
     @FXML
     public void initialize() {
@@ -172,6 +189,131 @@ public class KPRTSController {
 
         CHNGCont.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/arrow.png")));
         CHNGCont.setViewport(new Rectangle2D(3, 4, 42, 25));
+
+        mainSwitcher.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/Kompl.png")));
+        mainSwitcher.setViewport(new Rectangle2D(10, 6, 88, 88));
+
+        mainSwitcher.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                if (mouseEvent.getButton().equals(MouseButton.MIDDLE)) {
+                    if (mouseEvent.getEventType().equals(MouseEvent.MOUSE_PRESSED)) {
+                        if (state == 0) {
+                            mainSwitcher.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/Kompl.png")));
+                            mainSwitcher.setViewport(new Rectangle2D(10, 106, 88, 88));
+                        } else
+                        if (state == 1) {
+                            mainSwitcher.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/Kompl.png")));
+                            mainSwitcher.setViewport(new Rectangle2D(210, 106, 88, 88));
+                        } else {
+                            mainSwitcher.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/Kompl.png")));
+                            mainSwitcher.setViewport(new Rectangle2D(110, 106, 88, 88));
+                        }
+                    }
+                }
+            }
+        });
+
+        mainSwitcher.setOnMouseReleased(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                if (mouseEvent.getButton().equals(MouseButton.MIDDLE)) {
+                    if (mouseEvent.getEventType().equals(MouseEvent.MOUSE_RELEASED)) {
+                        if (state == 0) {
+                            mainSwitcher.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/Kompl.png")));
+                            mainSwitcher.setViewport(new Rectangle2D(10, 6, 88, 88));
+                        } else
+                        if (state == 1) {
+                            mainSwitcher.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/Kompl.png")));
+                            mainSwitcher.setViewport(new Rectangle2D(210, 6, 88, 88));
+                        } else {
+                            mainSwitcher.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/Kompl.png")));
+                            mainSwitcher.setViewport(new Rectangle2D(110, 6, 88, 88));
+                        }
+                    }
+                }
+            }
+        });
+
+        mainSwitcher.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                if (mouseEvent.getButton().equals(MouseButton.PRIMARY)) {
+                    if (mouseEvent.getClickCount() == 1) {
+                        if (state == 0) {
+                            setToMode2();
+                        } else
+                        if (state == 2) {
+                            if (!dangerMode) {
+                                mainSwitcher.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/Kompl.png")));
+                                mainSwitcher.setViewport(new Rectangle2D(210, 6, 88, 88));
+                            } else {
+                                mainSwitcher.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/Kompl.png")));
+                                mainSwitcher.setViewport(new Rectangle2D(210, 106, 88, 88));
+                            }
+                            state = 1;
+                        }
+                    }
+                } else
+                if (mouseEvent.getButton().equals(MouseButton.SECONDARY)) {
+                    if (state == 1) {
+                        setToMode2();
+                    } else if (state == 2) {
+                        if (dangerMode) {
+                            mainSwitcher.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/Kompl.png")));
+                            mainSwitcher.setViewport(new Rectangle2D(10, 106, 88, 88));
+                            state = 0;
+                        }
+                    }
+                } else
+                if (mouseEvent.getButton().equals(MouseButton.MIDDLE)) {
+                    if (mouseEvent.getClickCount() == 1) {
+                        if (state == 0) {
+                            if (!dangerMode) {
+                                dangerMode = true;
+                                mainSwitcher.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/Kompl.png")));
+                                mainSwitcher.setViewport(new Rectangle2D(10, 106, 88, 88));
+                            } else {
+                                dangerMode = false;
+                                mainSwitcher.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/Kompl.png")));
+                                mainSwitcher.setViewport(new Rectangle2D(10, 6, 88, 88));
+                            }
+                        } else if (state == 1) {
+                            if (!dangerMode) {
+                                dangerMode = true;
+                                mainSwitcher.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/Kompl.png")));
+                                mainSwitcher.setViewport(new Rectangle2D(210, 106, 88, 88));
+                            } else {
+                                dangerMode = false;
+                                mainSwitcher.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/Kompl.png")));
+                                mainSwitcher.setViewport(new Rectangle2D(210, 6, 88, 88));
+                            }
+                        } else if (state == 2) {
+                            if (!dangerMode) {
+                                dangerMode = true;
+                                mainSwitcher.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/Kompl.png")));
+                                mainSwitcher.setViewport(new Rectangle2D(110, 106, 88, 88));
+                            } else {
+                                dangerMode = false;
+                                mainSwitcher.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/Kompl.png")));
+                                mainSwitcher.setViewport(new Rectangle2D(110, 6, 88, 88));
+                            }
+                        }
+                    }
+                }
+            }
+
+            private void setToMode2() {
+                if (!dangerMode) {
+                    mainSwitcher.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/Kompl.png")));
+                    mainSwitcher.setViewport(new Rectangle2D(110, 6, 88, 88));
+                } else {
+                    mainSwitcher.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/Kompl.png")));
+                    mainSwitcher.setViewport(new Rectangle2D(110, 106, 88, 88));
+                }
+                state = 2;
+            }
+        });
     }
 
     public void setTextOnPanel(int numberOfPanel, String message) {

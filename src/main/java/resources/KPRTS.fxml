@@ -94,6 +94,7 @@
       <ImageView fx:id="PS" fitHeight="37.0" fitWidth="44.0" layoutX="118.0" layoutY="565.0" onMousePressed="#PSPressed" onMouseReleased="#PSReleased" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="RD" fitHeight="37.0" fitWidth="44.0" layoutX="304.0" layoutY="565.0" onMousePressed="#RDPressed" onMouseReleased="#RDReleased" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="PA" fitHeight="37.0" fitWidth="44.0" layoutX="384.0" layoutY="565.0" onMousePressed="#PAPressed" onMouseReleased="#PAReleased" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="mainSwitcher" fitHeight="84.0" fitWidth="83.0" layoutX="355.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true" />
 
 
    </children>
