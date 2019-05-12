@@ -80,6 +80,14 @@
       <ImageView fx:id="DKMV1" fitHeight="29.0" fitWidth="44.0" layoutX="56.0" layoutY="570.0" onMousePressed="#DKMV1Pressed" onMouseReleased="#DKMV1Released" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="DKMV2" fitHeight="29.0" fitWidth="44.0" layoutX="175.0" layoutY="570.0" onMousePressed="#DKMV2Pressed" onMouseReleased="#DKMV2Released" pickOnBounds="true" preserveRatio="true" />
 
+      <ImageView fx:id="VSS" fitHeight="37.0" fitWidth="44.0" layoutX="53.0" layoutY="320.0" onMousePressed="#VSSPressed" onMouseReleased="#VSSReleased" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="MRP" fitHeight="37.0" fitWidth="44.0" layoutX="243.0" layoutY="291.0" onMousePressed="#MRPPressed" onMouseReleased="#MRPReleased" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Eight33" fitHeight="37.0" fitWidth="44.0" layoutX="243.0" layoutY="502.0" onMousePressed="#Eight33Pressed" onMouseReleased="#Eight33Released" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="AM" fitHeight="37.0" fitWidth="44.0" layoutX="244.0" layoutY="565.0" onMousePressed="#AMPressed" onMouseReleased="#AMReleased" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="PS" fitHeight="37.0" fitWidth="44.0" layoutX="118.0" layoutY="565.0" onMousePressed="#PSPressed" onMouseReleased="#PSReleased" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="RD" fitHeight="37.0" fitWidth="44.0" layoutX="304.0" layoutY="565.0" onMousePressed="#RDPressed" onMouseReleased="#RDReleased" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="PA" fitHeight="37.0" fitWidth="44.0" layoutX="384.0" layoutY="565.0" onMousePressed="#PAPressed" onMouseReleased="#PAReleased" pickOnBounds="true" preserveRatio="true" />
+
 
    </children>
 </Pane>

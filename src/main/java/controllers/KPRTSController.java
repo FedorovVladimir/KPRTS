@@ -49,9 +49,13 @@ public class KPRTSController {
     private ImageView contactMode_1, contactMode_2, contactMode_3, contactMode_4,
             contactMode_5, contactMode_6, contactMode_7, contactMode_8;
 
-    // прочие кнопки
+    // прочие квадратные кнопки
     @FXML
     private ImageView APK, VOR, DME, ILS, MLS, RSBN, MB1, MB2, MB3, DKMV1, DKMV2;
+
+    // прочие круглые кнопки
+    @FXML
+    private  ImageView VSS, MRP, Eight33, AM, RD, PA, PS;
 
     private ArrayList<ImageView[]> panels;
 
@@ -132,6 +136,27 @@ public class KPRTSController {
 
         DKMV2.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/DKMB2.png")));
         DKMV2.setViewport(new Rectangle2D(3, 4, 42, 25));
+
+        VSS.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/KnBCC.png")));
+        VSS.setViewport(new Rectangle2D(0, 0, 32, 32));
+
+        MRP.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/KnMRP.png")));
+        MRP.setViewport(new Rectangle2D(0, 0, 32, 32));
+
+        Eight33.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/8.33.png")));
+        Eight33.setViewport(new Rectangle2D(0, 0, 32, 32));
+
+        AM.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/AM.png")));
+        AM.setViewport(new Rectangle2D(0, 0, 32, 32));
+
+        RD.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/RD.png")));
+        RD.setViewport(new Rectangle2D(0, 0, 32, 32));
+
+        PA.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/PA.png")));
+        PA.setViewport(new Rectangle2D(0, 0, 32, 32));
+
+        PS.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/PS.png")));
+        PS.setViewport(new Rectangle2D(0, 0, 32, 32));
 
     }
 
@@ -270,6 +295,91 @@ public class KPRTSController {
         DKMV2.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/DKMB2.png")));
         DKMV2.setViewport(new Rectangle2D(3, 4, 43, 26));
     }
+
+    @FXML
+    public void VSSPressed() {
+        VSS.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/KnBCC.png")));
+        VSS.setViewport(new Rectangle2D(34, 0, 32, 32));
+    }
+
+    @FXML
+    public void VSSReleased() {
+        VSS.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/KnBCC.png")));
+        VSS.setViewport(new Rectangle2D(0, 0, 32, 32));
+    }
+
+    @FXML
+    public void MRPPressed() {
+        MRP.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/KnMRP.png")));
+        MRP.setViewport(new Rectangle2D(34, 0, 32, 32));
+    }
+
+    @FXML
+    public void MRPReleased() {
+        MRP.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/KnMRP.png")));
+        MRP.setViewport(new Rectangle2D(0, 0, 32, 32));
+    }
+
+    @FXML
+    public void Eight33Pressed() {
+        Eight33.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/8.33.png")));
+        Eight33.setViewport(new Rectangle2D(34, 0, 32, 32));
+    }
+
+    @FXML
+    public void Eight33Released() {
+        Eight33.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/8.33.png")));
+        Eight33.setViewport(new Rectangle2D(0, 0, 32, 32));
+    }
+
+    @FXML
+    public void AMPressed() {
+        AM.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/AM.png")));
+        AM.setViewport(new Rectangle2D(34, 0, 32, 32));
+    }
+
+    @FXML
+    public void AMReleased() {
+        AM.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/AM.png")));
+        AM.setViewport(new Rectangle2D(0, 0, 32, 32));
+    }
+
+    @FXML
+    public void RDPressed() {
+        RD.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/RD.png")));
+        RD.setViewport(new Rectangle2D(34, 0, 32, 32));
+    }
+
+    @FXML
+    public void RDReleased() {
+        RD.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/RD.png")));
+        RD.setViewport(new Rectangle2D(0, 0, 32, 32));
+    }
+
+    @FXML
+    public void PAPressed() {
+        PA.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/PA.png")));
+        PA.setViewport(new Rectangle2D(34, 0, 32, 32));
+    }
+
+    @FXML
+    public void PAReleased() {
+        PA.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/PA.png")));
+        PA.setViewport(new Rectangle2D(0, 0, 32, 32));
+    }
+
+    @FXML
+    public void PSPressed() {
+        PS.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/PS.png")));
+        PS.setViewport(new Rectangle2D(34, 0, 32, 32));
+    }
+
+    @FXML
+    public void PSReleased() {
+        PS.setImage(new Image(getClass().getResourceAsStream("/png/Buttons/PS.png")));
+        PS.setViewport(new Rectangle2D(0, 0, 32, 32));
+    }
+
 
 
 
